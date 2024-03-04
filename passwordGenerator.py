@@ -5,6 +5,9 @@ import string
 import random
 import hashlib
 import base64
+import tempfile
+import webbrowser
+
 
 # Create the main window
 root = tk.Tk()
@@ -23,6 +26,127 @@ padding = 20
 var_special = tk.BooleanVar(value=True)
 var_numbers = tk.BooleanVar(value=True)
 var_alphabets = tk.BooleanVar(value=True)
+
+# Function to display project info
+def project_info():
+    info_text = """
+    <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Formation</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        background-color: #f0f0f0;
+      }
+
+      .card {
+        max-width: 600px;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+      }
+
+      h1,
+      h2 {
+        text-align: left;
+      }
+
+      p {
+        margin-bottom: 20px;
+      }
+
+      table {
+        width: 100%;
+        margin-bottom: 20px;
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+
+      th {
+        background-color: #f2f2f2;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h1>Project Information</h1>
+      <p>
+        This project developed by <b>Bro Code</b> as part of a Cyber Security
+        Internship is designed to secure organizations in the real world from
+        cyber frauds performed by hackers.
+      </p>
+
+      <h2>Project Details</h2>
+      <table>
+        <tr>
+          <td><strong>Project Name</strong></td>
+          <td>Strong and Secured Password Generator</td>
+        </tr>
+        <tr>
+          <td><strong>Project Description</strong></td>
+          <td>Developing a tool to Create Strong and Secured Passwords</td>
+        </tr>
+        <tr>
+          <td><strong>Project Start Date</strong></td>
+          <td>29-FEB-2024</td>
+        </tr>
+        <tr>
+          <td><strong>Project End Date</strong></td>
+          <td>09-MARCH-2024</td>
+        </tr>
+        <tr>
+          <td><strong>Project Status</strong></td>
+          <td>Completed</td>
+        </tr>
+      </table>
+
+      <h2>Developer Details</h2>
+      <table>
+        <tr>
+          <td><strong>Employee Id</strong></td>
+          <td><strong>Name</strong></td>
+          <td><strong>Email</strong></td>
+        </tr>
+        <tr>
+          <td>ST#IS#6182</td>
+          <td>Anubhav lal</td>
+          <td>anubhavlal.15@gmail.com</td>
+        </tr>
+      </table>
+
+      <h2>Company Details</h2>
+      <table>
+        <tr>
+          <td><strong>Contact Email</strong></td>
+          <td>contact@suprajatechnologies.com</td>
+        </tr>
+        <tr>
+          <td><strong>Company Name</strong></td>
+          <td>Supraja Technologies</td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
+    """
+    with tempfile.NamedTemporaryFile('w', delete=False, suffix='.html') as f:
+        f.write(info_text)
+        webbrowser.open_new_tab(f.name)
 
 # Function to generate passwords
 def generate_passwords():
@@ -83,6 +207,9 @@ def update_text_widget_size():
     height = result_text.get("1.0", "end").count("\n") + 2
     result_text.config(width=width, height=height)
 
+# Project Info button
+info_button = tk.Button(root, text="Project Info", command=project_info, bg="#4CAF50", fg="white", font=font_style,borderwidth=0, highlightthickness=0)
+info_button.pack(anchor="center", padx=padding, pady=(padding, 0))
 # Title label
 title_label = tk.Label(root, text="Password Generator", bg="#333333", fg="#f0f0f0", font=tkfont.Font(family="Consolas", size=18, weight="bold"))
 title_label.pack(pady=padding)
@@ -102,8 +229,8 @@ alphabets_check = ttk.Checkbutton(root, text="Alphabets", variable=var_alphabets
 alphabets_check.pack(anchor="w", padx=padding, pady=(0, 5))
 
 # Generate Passwords button
-generate_button = tk.Button(root, text="Generate Passwords", command=generate_passwords, bg="#4CAF50", fg="white", font=font_style)
-generate_button.pack(anchor="w", padx=padding, pady=(padding, 0))
+generate_button = tk.Button(root, text="Generate", command=generate_passwords, bg="#4CAF50", fg="white", font=font_style,borderwidth=0, highlightthickness=0)
+generate_button.pack(anchor="center", padx=padding, pady=(padding, 0))
 
 # Password complexity label
 complexity_label = tk.Label(root, text="Passwords are displayed in the order \n of their complexity based on hash values.", bg="#333333", fg="#f0f0f0", font=tkfont.Font(family="Consolas", size=10, weight="bold"))
