@@ -35,7 +35,7 @@ def project_info():
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Project Formation</title>
+    <title>Project Information</title>
     <style>
       body {
         display: flex;
@@ -84,9 +84,9 @@ def project_info():
   </head>
   <body>
     <div class="card">
-      <h1>Project Information</h1>
+      <h1>Project Formation</h1>
       <p>
-        This project developed by <b>Bro Code</b> as part of a Cyber Security
+        This project developed by <b>SecureSquad</b> as part of a Cyber Security
         Internship is designed to secure organizations in the real world from
         cyber frauds performed by hackers.
       </p>
@@ -122,11 +122,7 @@ def project_info():
           <td><strong>Name</strong></td>
           <td><strong>Email</strong></td>
         </tr>
-        <tr>
-          <td>ST#IS#6182</td>
-          <td>Anubhav lal</td>
-          <td>anubhavlal.15@gmail.com</td>
-        </tr>
+        <tbody id="membersList"></tbody>
       </table>
 
       <h2>Company Details</h2>
@@ -141,8 +137,50 @@ def project_info():
         </tr>
       </table>
     </div>
+
+    <script>
+      const members = [
+        {
+          name: "Anubhav Lal",
+          id: "ST#IS#6182",
+          email: "anubhavlal.15@gmail.com",
+        },
+        {
+          name: "Karthikeyan N",
+          id: "ST#IS#6204",
+          email: "nkarthikeyan00763@gmail.com",
+        },
+        {
+          name: "Padmapani S.N.",
+          id: "ST#IS#6191",
+          email: "padmapani11@gmail.com",
+        },
+        {
+          name: "Abhithaa C",
+          id: "ST#IS#6194",
+          email: "mail2abhi23@gmail.com",
+        },
+        {
+          name: "Yamini S",
+          id: "ST#IS#6196",
+          email: "yaminisankar024@gmail.com",
+        },
+      ];
+
+      members.sort((a, b) => a.id.localeCompare(b.id));
+      const membersList = document.getElementById("membersList");
+      members.forEach((member) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+        <td>${member.id}</td>
+        <td>${member.name}</td>
+        <td>${member.email}</td>`;
+        membersList.appendChild(row);
+      });
+    </script>
   </body>
 </html>
+
     """
     with tempfile.NamedTemporaryFile('w', delete=False, suffix='.html') as f:
         f.write(info_text)
