@@ -84,7 +84,7 @@ def project_info():
   </head>
   <body>
     <div class="card">
-      <h1>Project Formation</h1>
+      <h1>Project Information</h1>
       <p>
         This project developed by <b>SecureSquad</b> as part of a Cyber Security
         Internship is designed to secure organizations in the real world from
