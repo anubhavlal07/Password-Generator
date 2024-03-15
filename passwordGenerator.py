@@ -30,7 +30,7 @@ var_alphabets = tk.BooleanVar(value=True)
 # Function to display project info
 def project_info():
     info_text = """
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -74,7 +74,7 @@ def project_info():
       td {
         padding: 12px;
         text-align: left;
-        border-bottom: 1px solid #ddd;
+        border: 1px solid #ddd;
       }
 
       th {
@@ -82,13 +82,17 @@ def project_info():
       }
     </style>
   </head>
+
   <body>
     <div class="card">
       <h1>Project Information</h1>
       <p>
-        This project developed by <b>SecureSquad</b> as part of a Cyber Security
-        Internship is designed to secure organizations in the real world from
-        cyber frauds performed by hackers.
+        This project developed by <b>SecureSquad</b> as part of a
+        <b>Cyber Security Internship.</b> This project is designed to
+        <b
+          >Secure the Organizations in the Real World from Cyber Frauds
+          performed by Hackers.</b
+        >
       </p>
 
       <h2>Project Details</h2>
@@ -107,7 +111,7 @@ def project_info():
         </tr>
         <tr>
           <td><strong>Project End Date</strong></td>
-          <td>09-MARCH-2024</td>
+          <td>22-MAR-2024</td>
         </tr>
         <tr>
           <td><strong>Project Status</strong></td>
@@ -118,7 +122,7 @@ def project_info():
       <h2>Developer Details</h2>
       <table>
         <tr>
-          <td><strong>Employee Id</strong></td>
+          <td><strong>Employee ID</strong></td>
           <td><strong>Name</strong></td>
           <td><strong>Email</strong></td>
         </tr>
